@@ -9,8 +9,10 @@ const io = new Server({
 
 // listen for incoming connections
 io.on("connection", (socket) => {
-  socket.on("user-joined", (userName) => {
+  
+  socket.on("new-user-joined", (userName) => {
     console.log(`${userName} joined the chat`);
+    socket.broadcast.emit("user-joined", (userName));
   });
   socket.on("send", (message,userName) => {
     console.log(message);

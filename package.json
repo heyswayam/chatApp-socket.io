@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "startServer": "node 'node server/server.js'"
+
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

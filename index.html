@@ -6,24 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1--.0" />
     <link rel="stylesheet" href="input.css" />
-    <script type="module" src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script type="module" src="client.js"></script>
     <script type="module" src="darkMode.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div class="converstions flex flex-col overflow-scroll">
-
+        
     </div>
-
+    
     <div class="inputText fixed bottom-0 0 flex justify-around items-center w-full h-16">
         <input type="text" id="textInput" class="bg-gray-300 w-10/12 rounded-md h-12 overflow-y-scroll" />
         <button id="send"
-            class="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold text-xs h-fit w-fit py-2 px-3 rounded-md">
-            send
-        </button>
-    </div>
+        class="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold text-xs h-fit w-fit py-2 px-3 rounded-md">
+        send
+    </button>
+</div>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
 </body>
 
 </html>

@@ -15,7 +15,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("user-joined", (userName));
   });
   socket.on("send", (message,userName) => {
-    console.log(message);
+   // console.log(message);
     const data={message: message,named:userName}
     socket.broadcast.emit("receive", (data));
   });

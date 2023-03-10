@@ -17,8 +17,8 @@ socket.on('user-joined', userName => {
     conversations.appendChild(userJoinMsg);
 })
 const sendMessage = (name) => {
-    console.log("clicked");
-    console.log((name));
+    // console.log("clicked");
+    // console.log((name));
     if (textInput.value != '') {
 
         // Get the message input value
@@ -42,7 +42,7 @@ const sendMessage = (name) => {
 
 
         // Emit the 'send-message' event to the server
-        console.log(userName);
+        // console.log(userName);
         // socket.emit('send', (textInput.value,userName));
         socket.emit('send', textInput.value, userName);
 

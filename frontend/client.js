@@ -1,4 +1,5 @@
-const socket = io('http://localhost:3000');
+// const socket = io('http://localhost:3001');
+const socket = io('https://nodejs-chatapp-nodeserver-01.onrender.com');
 
 const textInput = document.querySelector('#textInput')
 const send = document.querySelector('#send');
@@ -10,7 +11,7 @@ socket.on('user-joined', userName => {
     const userJoinMsg = document.createElement('div');
     userJoinMsg.classList.add('mx-auto', 'block', 'px-3', 'm-2', 'rounded-sm', 'bg-slate-400', 'text-white');
     userJoinMsg.innerHTML=`New user joined ${userName} `
-    const conversations = document.querySelector('.converstions');
+    const conversations = document.querySelector('.conversations');
     conversations.appendChild(userJoinMsg);
 })
 const sendMessage = (name) => {
@@ -24,9 +25,11 @@ const sendMessage = (name) => {
         messageBox.innerHTML = textInput.value;
 
         // Append the message box to the conversations container
-        const conversations = document.querySelector('.converstions');
+        const conversations = document.querySelector('.conversations');
         conversations.appendChild(messageBox);
-
+        const lastMessage = conversations.lastElementChild;
+        // Scrolls to bottom
+        lastMessage.scrollIntoView({ behavior: "smooth" });
 
         // Adding the name on the textbox
         const tempName = document.createElement('div');
@@ -56,8 +59,12 @@ socket.on("receive", (data) => {
     messageBox.innerHTML = data.message;
 
     // Append the message box to the conversations container
-    const conversations = document.querySelector('.converstions');
+    const conversations = document.querySelector('.conversations');
     conversations.appendChild(messageBox);
+    const lastMessage = conversations.lastElementChild;
+    // Scrolls to bottom
+    lastMessage.scrollIntoView({ behavior: "smooth" });
+
     // Adding the name on the textbox
     const tempName = document.createElement('div');
     tempName.classList.add('text-green-700');

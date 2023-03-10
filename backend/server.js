@@ -4,9 +4,9 @@ import { Server } from "socket.io";
 
 // create a Node.js http server and pass it to socket.io
 const io = new Server({ 
-  cors:"*" //cors : for allowing this url to connect with localhost:3005
+  cors:"*" //cors : for allowing this url to connect with localhost:3001
 });
-
+const port = process.env.PORT||3001;
 // listen for incoming connections
 io.on("connection", (socket) => {
   
@@ -22,7 +22,7 @@ io.on("connection", (socket) => {
 
 });
 
-// start the server and listen on port 3005
-io.listen(3000, () => {
-  console.log("Server listening on port 3005");
+// start the server and listen on port 3001
+io.listen(port, () => {
+  console.log(`Server listening on port ${port}` );
 });

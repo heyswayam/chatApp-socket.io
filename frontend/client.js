@@ -3,6 +3,8 @@ const socket = io('https://nodejs-chatapp-nodeserver-01.onrender.com');
 
 const textInput = document.querySelector('#textInput')
 const send = document.querySelector('#send');
+    document.querySelector('.conversations').classList.add(`max-h-[calc(100vh-${textInput.offsetHeight+5}px)]`)
+
 
 const userName = prompt("Enter your name to join");
 socket.emit("new-user-joined", userName);
